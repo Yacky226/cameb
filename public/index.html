@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur d'affiche CAMEB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+   
+    
+    <div class="controls">
+      <input type="file" id="photoInput" accept="image/*">
+      <div class="zoom-controls">
+        <button id="zoomInBtn">Zoom +</button>
+        <button id="zoomOutBtn">Zoom -</button>
+        <button id="resetBtn">Réinitialiser</button>
+      </div>
+    </div>
+    
+    <div class="canvas-wrapper">
+      <canvas id="canvas"></canvas>
+    </div>
+    
+    <button id="downloadBtn">📥 Télécharger mon affiche</button>
+    
+    <div class="instructions">
+      <p>• Cliquez-glissez dans le cercle pour positionner votre photo</p>
+      <p>• Utilisez la molette ou les boutons pour zoomer</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

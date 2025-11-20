@@ -1,0 +1,177 @@
+/* Global – Box sizing et overflow */
+html, body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  max-width: 100%;
+}
+
+/* Générales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Conteneur central */
+.container {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 95%;
+  max-width: 600px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Contrôles */
+.controls {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Zoom-controls – Une seule ligne, boutons égaux */
+.zoom-controls {
+  display: flex;
+  gap: 6px;        /* Espace entre les boutons */
+  width: 100%;     /* Occupe toute la largeur du container */
+}
+
+.zoom-controls button {
+  flex: 1;             /* Chaque bouton prend la même largeur */
+  padding: 8px;        /* Ajuste vertical/horizontal */
+  font-size: 14px;
+  white-space: nowrap;
+  border: none;
+  background: #0077cc;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.zoom-controls button:hover {
+  background: #005fa3;
+}
+
+.zoom-controls button:active {
+  transform: scale(0.98);
+  filter: brightness(90%);
+}
+
+/* Input et bouton principal */
+input[type="file"],
+#downloadBtn {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: none;
+  background: #0077cc;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="file"]:hover,
+#downloadBtn:hover {
+  background: #005fa3;
+}
+
+/* Conteneur du canvas */
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 121.2%; /* Ratio exact 605/499 = 1.212 */
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+/* Canvas responsive */
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+
+/* Instructions */
+.instructions {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 14px;
+  color: #666;
+}
+
+.instructions p {
+  margin: 5px 0;
+}
+
+/* Media Queries pour mobiles */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  
+  body {
+    display: block;
+    padding: 0;
+    min-height: 100vh;
+    background: #fff;
+  }
+  
+  /* Même ligne, boutons un peu plus gros si besoin */
+  .zoom-controls button {
+    padding: 10px 6px;
+    font-size: 15px;
+  }
+  
+  input[type="file"],
+  #downloadBtn {
+    padding: 14px;
+    font-size: 16px;
+    min-height: 50px;
+  }
+  
+  .instructions {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
+
+/* Boutons plus grands sur très petits écrans */
+@media (max-width: 480px) {
+  .zoom-controls button {
+    padding: 12px 8px;
+    font-size: 16px;
+  }
+}
